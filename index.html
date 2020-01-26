@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <title>Find Your YWCA</title>
+    <!-- <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css'
+        rel='stylesheet' /> -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.css'
+        rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <link href="css/ywca.css" rel='stylesheet' />
+</head>
+
+<body>
+    <div id="ywca-wrapper">
+
+        <div class="ywca-nav">
+          <img src="images/logo.png" href='index.html'>
+        </div>
+
+        <div class="jumbotron">
+          <img src="images/womenonstepscrop.jpg">
+          <div class="orangebox"></div>
+          <h1 class="headline">Join us on our mission to eliminate racism and empower women.</h1>
+        </div>
+
+        <div class="pagecontent">
+          <h2 class="subhead">Find Your YWCA Location</h2>
+          <div id="map"></div>
+        </div>
+
+          <div class="selectedcontent">
+            <div id="changeInfo">
+
+                <p id="placeholder">Select a YWCA location on the map to view details.</p>
+                <!-- <p id="address">Address, City, State ZIP</p>
+
+                <h4>AVAILABLE PROGRAMS</h4>
+                <div class="programs">
+                  <div id="program1">PROGRAM NAME</div>
+                  <div id="program2">PROGRAM NAME</div>
+                  <div id="program3">PROGRAM NAME</div>
+                  <div id="program4">PROGRAM NAME</div>
+                  <div id="program5">PROGRAM NAME</div>
+                </div> -->
+          </div>
+
+
+          <div class="footer">
+            <p class="copyright">© 2019 NICOLE DINAN</p>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.min.js'>
+    </script>
+
+    <script>
+      var popup = new mapboxgl.Popup({
+          offset: 12
+      });
+
+        // mapbox access token (your token)
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb2xlZGluYW4iLCJhIjoiY2pud2NmajAzMXA1OTNwbnQxazNwY21iNyJ9.Jb0eQVtmRFyqaxiBCjjigg';
+
+        // map instance (your map style)
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/nicoledinan/cjtzbzq354jrz1fmzsyxg123y',
+            center: [-95.6, 37.9],
+            zoom: 3.1,
+            minZoom: 2,
+            // dragRotate: false,
+            // pitchWithRotate: false,
+            // hash: true
+        });
+
+        map.on('load', function () {
+
+          map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+            // when a 'click' event occurs on features in the 'ywca-assoc' layer
+            // open a popup at location of click, with HTML from feature's properties
+            map.on('click', 'ywca-assoc-2018-5vrsjj', function (e) {
+                // what is the e (event) parameter returning
+                console.log(e.features[0].properties);
+
+                // put assoc info somewhere else on the page
+                // $().html('<h3>' + e.features[0].properties.assoc + '</h3>');
+
+                var html = '<h3 id="locationtitle">' + e.features[0].properties.assoc + '</h3>';
+                html += '<p id="address">' + e.features[0].properties.address + '</p>';
+                html += '<h4>' + 'AVAILABLE PROGRAMS' + '</h4>';
+                html += '<div class="programs">' + '<div id="program1">' + e.features[0].properties.program1 + '</div>';
+                html += '<div id="program2">' + e.features[0].properties.program2 + '</div>';
+                html += '<div id="program3">' + e.features[0].properties.program3 + '</div>';
+                html += '<div id="program4">' + e.features[0].properties.program4 +'</div>';
+                html += '<div id="program5">' + e.features[0].properties.program5 + '</div>' + '</div>';
+                html += '<div class="footer"><p class="copyright">© 2019 NICOLE DINAN</p></div></div>';
+
+
+                $('#changeInfo').html(html);
+            });
+
+            // change cursor to 'pointer' when mouse is over point
+            map.on('mouseenter', 'ywca-assoc-2018-5vrsjj', function (e) {
+                map.getCanvas().style.cursor = 'pointer';
+                // popup
+                popup = new mapboxgl.Popup({
+                        // closeButton: false,
+                        // closeOnClick: false,
+                        offset: 12
+                    })
+                    .setLngLat(e.lngLat)
+                    .setHTML('<h6>' + e.features[0].properties.assoc + '</h6>')
+                    .addTo(map);
+            });
+
+            // change it back to 'default' when mouse leaves point
+            map.on('mouseleave', 'ywca-assoc-2018-5vrsjj', function () {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+
+        });
+    </script>
+</body>
+
+</html>

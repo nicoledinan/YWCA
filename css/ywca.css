@@ -1,0 +1,246 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height:100%;
+}
+
+.ywca-nav {
+  width: 100%;
+  height: 117px;
+  background: #fff;
+}
+
+.ywca-nav img {
+  position: absolute;
+  width: 180px;
+  height: 84px;
+  left: 48px;
+  top: 18px;
+}
+
+.orangebox {
+  position: absolute;
+  width: 100%;
+  height: 339px;
+  background: rgba(250, 70, 22, 0.7);
+  display: inline-block;
+}
+
+.jumbotron{
+  text-align: center;
+  height: 339px;
+  display: inline-block;
+
+}
+
+.jumbotron img {
+  position: absolute;
+  padding: 0;
+  width: 100%;
+  height: 339px;
+  /* needs to be kept from squishing */
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.jumbotron .headline {
+  position: absolute;
+  display: inline-block;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6vh;
+  line-height: normal;
+  text-align: center;
+  width: 80%;
+  color: #FFFFFF;
+  margin: 0 auto;
+  padding-top: 2em;
+  left: 50%;
+  margin-left: -40%;
+}
+
+.pagecontent h2 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: normal;
+  position: absolute;
+  color: #333333;
+}
+
+.subhead {
+  left: 48px;
+  height: 100px;
+  background: #fff;
+  margin-bottom: 5px;
+}
+
+.pagecontent {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  /* height: 1000px; */
+  /* background: #fff; */
+  width: 100%;
+}
+
+.selectedcontent {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  /* height: 1000px; */
+  /* background: #fff; */
+  width: 100%;
+  align-items: center;
+  padding-bottom: 43px;
+}
+
+#locationtitle {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: normal;
+  text-align: center;
+  text-transform: capitalize;
+  /* height: 100px; */
+  /* background: #fff; */
+  color: #FA4616;
+  display: block;
+  padding-top: 600px;
+  margin-bottom: 0;
+}
+
+#placeholder {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: normal;
+  text-align: center;
+  display: block;
+  color: #333333;
+
+  height: 90px;
+  display: block;
+  padding-top: 600px;
+  margin-bottom: 0;
+}
+
+#address {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: normal;
+  text-align: center;
+  margin-top: 0;
+  color: #333333;
+}
+
+.selectedcontent h4 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: normal;
+  text-align: center;
+  display: block;
+  color: #333333;
+
+}
+
+.programs {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+#program1, #program2, #program3, #program4, #program5 {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: normal;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 2px 12px;
+  background: #FA4616;
+  border-radius: 8px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#map {
+  /* position:absolute; */
+  width:80%;
+  height: 500px;
+  display: block;
+  /* text-align: center; */
+  margin: 0 auto;
+  margin-top: 100px;
+  z-index: 10000;
+}
+
+.mapboxgl-map {
+  /* text-align: center; */
+  overflow: visible;
+}
+
+.ywca-wrapper {
+  width: 100%;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 43px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333333;
+
+}
+
+.footer p {
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: normal;
+  text-align: center;
+  margin: 0 auto;
+  color: #FFFFFF;
+
+}
+
+.copyright {
+  padding-top: 6px;
+}
+
+/* mapbox styles */
+
+h6 {
+    text-transform: uppercase;
+    color: #FA4616;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0.03rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.mapboxgl-popup-content {
+    font-size: 0.85rem;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    padding: 0px 12px 6px 12px;
+}
